@@ -4,6 +4,8 @@ const date = document.querySelector('#date');
 const toDoList = document.getElementById('list');
 const addButton = document.querySelector('#click-to-add');
 const toDoArray = [];
+const removeButton = document.getElementById('click-to-remove');
+const doneButton = document.getElementById('click-to-done');
 let toDoId = 0
 
 class ToDo {
@@ -19,9 +21,9 @@ class ToDo {
 
 function addToDo(toDo) {
     const item = `<li class="item">
-                    <i class="fa fa-circle co" ></i>
+                    <span id="click-to-done"><i class="far fa-circle co" ></i></span>
                     <p class="text">${toDo}</p>
-                    <i class="fa fa-trash-o de" ></i>
+                    <span id="click-to-remove"><i class="fa fa-trash-o de" ></i></span>
                  </li>`
 
     toDoList.insertAdjacentHTML('beforeend', item)
@@ -58,3 +60,17 @@ addButton.addEventListener('click',function(){
     inputField.value = "";
     toDoId++;
 });
+
+// displayng date
+
+let dateOpt = {
+    weekday:'long',
+    month:'short',
+    day:'numeric'
+}
+
+let today = new Date();
+date.innerHTML = today.toLocaleDateString('en-US',dateOpt);
+
+// done and remove buttons
+
