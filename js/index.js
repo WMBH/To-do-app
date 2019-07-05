@@ -1,8 +1,21 @@
 const inputField = document.querySelector('#input');
-const clear = document.querySelector('.clear')
-const date = document.querySelector('#date')
-const toDoList = document.getElementById('list')
+const clear = document.querySelector('.clear');
+const date = document.querySelector('#date');
+const toDoList = document.getElementById('list');
 const addButton = document.querySelector('#click-to-add');
+const toDoArray = [];
+let toDoId = 0
+
+class ToDo {
+    constructor(text,id){
+        this.text = text
+        this.id = id
+        this.completed = false
+        this.trashed = false
+    }
+}
+
+// template creation
 
 function addToDo(toDo) {
     const item = `<li class="item">
@@ -21,11 +34,13 @@ document.addEventListener('keyup', event => {
         let toDo = inputField.value;
         if (toDo) {
             addToDo(toDo);
+            toDoArray.push(new ToDo(toDo,toDoId));
             inputField.placeholder = "Add a to-do"
         } else {
             inputField.placeholder = "Field is empty"
         }
         inputField.value = "";
+        toDoId++;
     }
 });
 
@@ -35,9 +50,11 @@ addButton.addEventListener('click',function(){
     let toDo = inputField.value;
     if (toDo) {
         addToDo(toDo);
+        toDoArray.push(new ToDo(toDo,toDoId));
         inputField.placeholder = "Add a to-do"
     } else {
         inputField.placeholder = "Field is empty"
     }
     inputField.value = "";
+    toDoId++;
 });
