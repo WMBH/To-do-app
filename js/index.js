@@ -6,6 +6,9 @@ const addButton = document.querySelector('#click-to-add');
 const toDoArray = [];
 const removeButton = document.getElementById('click-to-remove');
 const doneButton = document.getElementById('click-to-done');
+const CHECK = 'fas-fa-check-circle'
+const UNCHECK = 'fa-circle'
+const LINETHROUGH = 'lineThrough'
 let toDoId = 0
 
 class ToDo {
@@ -20,11 +23,12 @@ class ToDo {
 // template creation
 
 function addToDo(toDo) {
+
     const item = `<li class="item">
-                    <span id="click-to-done"><i class="far fa-circle co" ></i></span>
-                    <p class="text">${toDo}</p>
+                    <span id="click-to-done"><i class="far co ${DONE}"></i></span>
+                    <p class="text ${LINE}">${toDo}</p>
                     <span id="click-to-remove"><i class="fa fa-trash-o de" ></i></span>
-                 </li>`
+                  </li>`
 
     toDoList.insertAdjacentHTML('beforeend', item)
 }
