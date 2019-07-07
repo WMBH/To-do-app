@@ -23,10 +23,10 @@ class ToDo {
 // template creation
 
 function addToDo(toDo) {
-
+    let DONE = UNCHECK
     const item = `<li class="item">
                     <span id="click-to-done"><i class="far co ${DONE}"></i></span>
-                    <p class="text ${LINE}">${toDo}</p>
+                    <p class="text ">${toDo}</p>
                     <span id="click-to-remove"><i class="fa fa-trash-o de" ></i></span>
                   </li>`
 
