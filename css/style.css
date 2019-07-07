@@ -85,7 +85,7 @@ body{
 .item i.co:hover{
     cursor: pointer;
 }
-.fa-check-circle{
+.fas fa-check-circle{
     color:#6eb200;
 }
 .item p.text{
